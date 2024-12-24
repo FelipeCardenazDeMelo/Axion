@@ -1,0 +1,57 @@
+/* Poppins */
+@font-face {
+    font-family: "Poppins";
+    src: url('../fonts/Poppins/Poppins-ExtraLight.ttf');
+    font-weight: 200; /* ExtraLight */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url('../fonts/Poppins/Poppins-Regular.ttf');
+    font-weight: 400; /* Regular */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url('../fonts/Poppins/Poppins-Medium.ttf');
+    font-weight: 500; /* Medium */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url('../fonts/Poppins/Poppins-Bold.ttf');
+    font-weight: 700; /* Bold */
+    font-style: normal;
+}
+
+/* Inter */
+@font-face {
+    font-family: "Inter";
+    src: url('../fonts/Inter/static/Inter_18pt-Light.ttf');
+    font-weight: 300; /* Light */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url('../fonts/Inter/static/Inter_18pt-Regular.ttf');
+    font-weight: 400; /* Regular */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url('../fonts/Inter/static/Inter_18pt-Medium.ttf');
+    font-weight: 500; /* Medium */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url('../fonts/Inter/static/Inter_18pt-Bold.ttf');
+    font-weight: 700; /* Bold */
+    font-style: normal;
+}
