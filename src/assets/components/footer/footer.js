@@ -5,14 +5,26 @@ import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaClock } from "react-icons/fa"
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import logo from '../../img/axion_logo.png';
 
+
+const Wrapper = styled.div`
+  gap: 12px;
+  height: auto;
+  background-color: ${props => props.theme.colors.primary};
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+
+`;
+
+
 const FooterContainer = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 40px 60px;
-  background-color: ${props => props.theme.colors.primary};
+  margin: 40px;
   color: #a1a7b3;
   font-family: "Inter";
+  width:1000px;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -115,7 +127,7 @@ const FooterBottom = styled.div`
 
 const Footer = () => {
   return (
-    <>
+    <Wrapper>
       <FooterContainer>
 
         <Column>
@@ -161,7 +173,7 @@ const Footer = () => {
         </LogoContainer>
       </FooterContainer>
       <FooterBottom>© 2024 Axion. All rights reserved.</FooterBottom>
-    </>
+    </Wrapper>
   );
 };
 

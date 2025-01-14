@@ -12,7 +12,8 @@ const WrapperSection1 = styled.div`
   margin: 0px;
   padding:0px;
   background-color: white;
-  margin-top: -3%;
+  width:1000px;
+
 `;
 
 const StyledH1 = styled.h1`
@@ -22,6 +23,7 @@ const StyledH1 = styled.h1`
   font-family: "Inter";
   font-weight: 550;
   margin-bottom: 0px; 
+
 `;
 
 const StyledH2 = styled.h2`

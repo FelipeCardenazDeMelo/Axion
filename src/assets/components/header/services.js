@@ -11,7 +11,7 @@ import { AiOutlineCloudServer, AiOutlineRobot } from "react-icons/ai";
 const ServicesWrapper = styled.div`
   position: absolute;
   margin-top: 230px;
-  
+
 
   @media (min-width: 1024px) and (max-width: 1396px ) {
   margin-top: 210px;

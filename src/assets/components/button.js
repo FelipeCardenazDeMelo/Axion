@@ -105,17 +105,21 @@ const Button = styled.button`
   ${props =>
     props.size === 'largeLP' &&
     css`
-      font-size: ${props.theme.fontSize.buttonSmall};
+   
+  white-space: nowrap; /* Evita quebra de linha no texto */
+
+  font-size: ${props.theme.fontSize.buttonSmall};
       font-weight: 500;
       padding: 18px 70px;
-      width: 40%;
-      height: 10vh;
+        width: 300px; /* Ajuste para comportar ambos os textos */
 
-        @media (min-width: 1024px) and (max-width: 1396px ) {
-  /* zoom 125% - 150%*/
-      padding: 8px 20px;
-      height: 10vh;
+      height: 70px;
+      @media (min-width: 1024px) and (max-width: 1396px ) {
+        /* zoom 125% - 150%*/
+      padding: 8px 60px;
+      height: 12vh;
       font-size: 14px;
+      height: 10vh;
 
 }
     `}
@@ -128,7 +132,7 @@ const Button = styled.button`
       padding: 18px 70px;
       height: 70px;
       @media (min-width: 1024px) and (max-width: 1396px ) {
-  /* zoom 125% - 150%*/
+        /* zoom 125% - 150%*/
       padding: 8px 60px;
       height: 12vh;
       font-size: 14px;

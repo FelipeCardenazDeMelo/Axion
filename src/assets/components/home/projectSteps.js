@@ -15,8 +15,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px auto;
-  width: 90%;
+  width:1000px;
+  height: auto;
 
 `;
 
@@ -27,6 +27,8 @@ const StyledH1 = styled.h1`
   font-family: "Inter";
   font-weight: 550;
   margin-bottom: 0px; 
+    margin: 30px ;
+
 `;
 
 const StyledH2 = styled.h2`
@@ -36,7 +38,8 @@ const StyledH2 = styled.h2`
   font-family: "Inter";
   font-weight: 400;
   width: 42%;
-  margin-top: 3%;
+      margin-top:-1% ;
+
 `;
 
 const StepsContainer = styled.div`
@@ -90,11 +93,11 @@ const StepSubtitle = styled.div`
   text-align: center;
 
   transition: 0.4s ease;
-  width: 220px;
+  width: 180px;
 `;
 const StepCircle = styled.div`
-  width: 9vh;
-  height: 9vh;
+  width: 70px;
+  height: 70px;
   border-radius: 100%;
   background-color: ${(props) =>
     props.active ? props.theme.colors.primary : "rgba(117, 139, 183, 0.45)"};
@@ -103,7 +106,6 @@ const StepCircle = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  font-weight: bold;
   position: relative;
   z-index: 1; /* Garante que o círculo fique acima da linha */
   margin: 0 auto;
@@ -123,9 +125,10 @@ const StepCircle = styled.div`
 `;
 
 const Buttons = styled.div`
-  margin-top: 150px;
+  margin-top: 80px;
   display: flex;
   gap: 100px;
+  padding: 80px;
 `;
 
 // Componente Principal

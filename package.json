@@ -2,6 +2,7 @@
   "name": "axion",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://FelipeCardenazDeMelo.github.io/my-app",
   "dependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
     "@testing-library/jest-dom": "^5.17.0",

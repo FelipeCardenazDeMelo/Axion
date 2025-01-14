@@ -16,13 +16,15 @@ const WrapperSection = styled.div`
   box-shadow: inset 0 8px 16px rgba(0, 0, 0, 0.15), 
               inset 0 -8px 16px rgba(0, 0, 0, 0.15);
   text-align: center;
+  width: 100%;
+
 `;
 
 const Container = styled.div`
-  width: 80%;
+  width:1000px;
   height: 100%;
-  padding: 30px;
-  text-align: center;
+  text-align: center;    
+  padding-top: 30px;
 `;
 
 const ContainerIcons = styled.div`
@@ -30,8 +32,6 @@ const ContainerIcons = styled.div`
   padding-top: 20px;
   @media (min-width: 1024px) and (max-width: 1396px ) {
   padding-top: 20px;
-
-  
   }
   display: flex;
   justify-content: space-around;
@@ -116,9 +116,8 @@ const Description2 = styled.p`
   font-size: 0.9rem;
   color: #475467;
   font-weight: 450;
-  width: 120%; /* Faz com que a descrição ocupe toda a largura disponível */
+  width: 100%; /* Faz com que a descrição ocupe toda a largura disponível */
   text-align: center;  /* Garante a centralização do texto */
-  margin-left: -10%;
 `;
 
 const StyledH1 = styled.h1`
@@ -139,6 +138,7 @@ const ContainerA = styled.div`
   width: 60%;
   margin-top: 2%;
   margin-left: 20%;
+  padding-bottom: 2px;
 
 
   @media (min-width: 1024px) and (max-width: 1396px ) {
@@ -168,8 +168,9 @@ const Buttons = styled.h1`
   width: 60%;
   margin-top: 3.5%;
   margin-left: 20%;
-@media (min-width: 1024px) and (max-width: 1396px ) {
-        
+  padding-bottom: 50px;
+
+  @media (min-width: 1024px) and (max-width: 1396px ) {
   margin-top: 1%;
 
   }
@@ -201,7 +202,8 @@ const Section2 = () => {
               <Icon><TbChartInfographic /></Icon>
             </IconWrapper>
             <Title>IT Consulting</Title>
-            <Description2>A 3-week immersive experience tailored to your business, focused on identifying and implementing the best IT solutions that drive growth while saving you time and reducing costs.</Description2>
+            <Description2>A 3-week immersive program designed to identify and implement IT solutions that drive growth, save time, and reduce costs for your business.
+            </Description2>
           </ServiceCard>
         </ContainerIcons>
         <ContainerA>
