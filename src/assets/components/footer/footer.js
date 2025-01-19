@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaClock } from "react-icons/fa";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
-import logo from '../../img/axion_logo.png';
+import logo from '../../img/logo_full.png';
 
 
 const Wrapper = styled.div`
@@ -89,7 +89,7 @@ const Logo = styled.div`
 transition: .4s ease; 
 
   img {
-    width: 150px;
+    width: 250px;
   }
 
   span {

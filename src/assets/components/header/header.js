@@ -1,71 +1,105 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import logo from "../../img/axion_logo.png";
+import logo from "../../img/aeon.png";
 import { SlArrowDown } from "react-icons/sl";
 import { FaCog, FaChartBar } from "react-icons/fa";
 import { LiaLaptopCodeSolid } from "react-icons/lia";
 import { TbChartInfographic, TbDeviceMobileCode } from "react-icons/tb";
 import { CgWebsite } from "react-icons/cg";
 import { AiOutlineCloudServer, AiOutlineRobot } from "react-icons/ai";
+import logoMobile from "../../img/image-removebg-preview.png"; // Caminho da imagem para telas menores
 
 const HeaderWrapper = styled.header`
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 0;
   background-color: ${(props) => props.theme.colors.primary};
-  height: 9%;
   position: fixed;
-  top: 0;
   left: 0;
   width: 100vw;
-  box-shadow: -3px 10px 19px -5px rgba(0, 0, 0, 0.75);
+  z-index: 1;
+  height: 11vh;
+`;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
+const WrapperTeste = styled.div`
+    width: 100%;
+    display: flex;
+    height: 100%;
     align-items: center;
-  }
+    justify-content: space-between;
+    box-shadow: -3px 10px 19px -5px rgba(0, 0, 0, 0.75);
+    z-index: 1;
+    background-color: ${(props) => props.theme.colors.primary};
 `;
 
 const Logo = styled.div`
   display: flex;
   align-items: center;
-  padding: 5vw;
+  padding: 12vw;
+
+  @media (max-width: 1000px) {
+    padding: 7%;
+  }
 
   img {
-    width: 10vw;
+    width: 8vw;
     height: auto;
+
+    @media (max-width: 1000px) {
+      width: 50vw;
+    }
   }
 `;
 
 const Nav = styled.nav`
   position: absolute;
   width: 100%;
-  display: flex; /* Flexbox para alinhamento */
-  justify-content: center; /* Centraliza os itens horizontalmente */
-  align-items: center; /* Alinha os itens verticalmente */
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: ${props => props.theme.fontSize.header};
+  margin: 0;
   padding: 0;
+  font-family: 'Poppins';
 
-  ul {
-    display: flex;
-    justify-content: center; /* Centraliza os itens da lista */
-    align-items: center; /* Garante alinhamento vertical */
-    list-style: none;
-    gap: 4vw;
-    margin: 0;
-    padding: 0;
-    font-size: ${props => props.theme.fontSize.header};
-    font-family: 'Poppins';
+   @media (max-width: 1000px) {
+          justify-content: flex-start;
+  align-items: flex-start;
+    top:0;
+    z-index: -1;
 
-    @media (max-width: 768px) {
-      flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
-      gap: 10px;
+
     }
 
-    @media (min-width: 1024px) and (max-width: 1396px) {
-      font-size: 16px; /* Ajusta o tamanho da fonte em telas médias */
+  ul {
+    display: "flex";
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 0vh;
+    width: 100%;
+    background-color: ${(props) => props.theme.colors.primary};
+    justify-content: center;
+    align-items: center;
+    gap: 4vw;
+    transition: height 0.4s ease-out;
+    @media (min-width: 1024px) {
+      display: flex;
+      flex-direction: row;
+      position: static;
+      height: auto;
+      width: auto;
+      background-color: transparent;
+    }
+
+     @media (max-width: 1000px) {
+         width: 100%;
+         padding-left: 0;
+         margin-top: 16%;
+         align-items: flex-start;
+         justify-content: flex-start;
+         gap: 0vh;
+         background-color:#161F2B;
+         overflow: hidden;
+
     }
   }
 
@@ -73,10 +107,17 @@ const Nav = styled.nav`
     font-weight: 300;
     position: relative;
     display: flex; /* Flexbox dentro do li */
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
     align-items: center; /* Centraliza o conteúdo verticalmente */
     text-align: center; /* Centraliza o texto */
     transition: 0.3s ease;
+
+     @media (max-width: 1000px) {
+      width: 80vw;
+      padding-left: 7%;
+      justify-content: space-between;
+      font-size: 20px;
+      margin-top:15%;
+    }
 
     .icon {
       color: white;
@@ -88,6 +129,12 @@ const Nav = styled.nav`
         font-size: 12px;
       }
 
+        @media (max-width: 1000px ) {
+                 margin-left: 7vw;
+                  font-size: 20px;
+
+          }
+
       &.rotated {
         transform: rotate(180deg);
       }
@@ -98,6 +145,7 @@ const Nav = styled.nav`
     text-decoration: none;
     color: ${props => props.theme.colors.buttonBackgroundPrimary};
     transition: color 0.3s;
+    
   }
 
   a:hover {
@@ -123,10 +171,15 @@ const Nav = styled.nav`
       background-color: ${props => props.theme.colors.subtitleTextPrimary};
       transition: width 0.3s ease;
       transform: translateX(-50%);
+
+    
     }
 
     &:hover::after {
       width: 100%;
+      @media (max-width: 1000px ) {
+                  width: 0%;
+          }
     }
   }
 
@@ -168,8 +221,10 @@ const ServicesMenu = styled.div`
   .services-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 5px;
+    gap: 15px;
     padding:10px;
+    margin-top: 20px;
+    margin-bottom:20px;
     }
 
   .service-item {
@@ -218,7 +273,7 @@ const ServicesMenu = styled.div`
       opacity: 20;
       border-radius: 100%;
       box-shadow: 0px 1px 6px #a6bbd6;
-            color: ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.colors.primary};
 
       font-size:20px;
 
@@ -263,8 +318,60 @@ const Spacer = styled.div`
   height: 60px; /* Altura igual à do Header para evitar sobreposição */
 `;
 
+const MenuIcon = styled.div`
+  display: none;
+  cursor: pointer;
+  z-index: 25;
+
+  @media (max-width: 1000px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: ${(props) => props.theme.colors.buttonBackgroundPrimary};
+    padding-right: 10%;
+
+          
+  }
+
+
+  .icon {
+      color: white;
+      transition: transform 0.3s ease;
+      margin-left: 0.7vw;
+
+
+
+      &.rotated {
+        transform: rotate(180deg);
+      }
+    
+`;
+
 const Header = () => {
   const [servicesActive, setServicesActive] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [logoSrc, setLogoSrc] = useState(logo);
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 1000) {
+        setLogoSrc(logoMobile);
+      } else {
+        setLogoSrc(logo);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Chama o handleResize ao carregar o componente
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const services = [
     {
@@ -282,53 +389,74 @@ const Header = () => {
     { id: 8, name: "AI Consulting", desc: "Implement AI for optimization.", icon: <AiOutlineRobot /> },
   ];
 
+
+  function open() {
+
+    var ul = document.querySelector(".ul-mobile");
+
+    if (ul.style.height  === "80vh") {
+        ul.style.height = "0vh";
+    } else {
+      ul.style.height = "80vh";
+
+
+    }
+
+  }
+
   return (
     <>
       <HeaderWrapper>
+        <WrapperTeste>
         <Logo>
-          <img src={logo} alt="Logo" />
+          <img src={logoSrc} alt="Logo" />
         </Logo>
-        <Nav>
-          <ul>
-            <li>
-              <a href="#home">Home</a>
-            </li>
-            <li
-              onMouseEnter={() => setServicesActive(true)}
-              onMouseLeave={() => setServicesActive(false)}
-            >
-              <a href="#services">Services</a>
-              <SlArrowDown className={`icon ${servicesActive ? "rotated" : ""}`} />
-              {servicesActive && (
-                <ServicesMenu>
-                  <h1>Services</h1>
-                  <div className="services-list">
-                    {services.map((service) => (
-                      <div key={service.id} className="service-item">
-                        <div className="icon2" >
-                          <div className="icon3" >{service.icon}</div>
-                        </div>
-                        <div className="content">
-                          <h4>{service.name}</h4>
-                          <p>{service.desc}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </ServicesMenu>
-              )}
-            </li>
-            <li>
-              <a href="#pricing">Pricing</a>
-            </li>
-            <li>
-              <a href="#products">Products</a>
-            </li>
-            <li>
-              <a href="#about">About</a>
-            </li>
-          </ul>
-        </Nav>
+        <MenuIcon onClick={() => { open(); setMenuOpen(!menuOpen)}}>
+          <SlArrowDown className={`icon ${menuOpen ? "rotated" : ""}`} />
+        </MenuIcon>
+        <Nav menuOpen={menuOpen}>
+        <ul className="ul-mobile">
+    <li className="li1">
+      <a href="#home">Home</a>
+    </li>
+    <li
+      className="li2"
+      onMouseEnter={() => setServicesActive(true)}
+      onMouseLeave={() => setServicesActive(false)}
+    >
+      <a href="#services">Services</a>
+      <SlArrowDown className={`icon ${servicesActive ? "rotated" : ""}`} />
+      {servicesActive && (
+        <ServicesMenu>
+          <h1>Services</h1>
+          <div className="services-list">
+            {services.map((service) => (
+              <div key={service.id} className="service-item">
+                <div className="icon2">
+                  <div className="icon3">{service.icon}</div>
+                </div>
+                <div className="content">
+                  <h4>{service.name}</h4>
+                  <p>{service.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </ServicesMenu>
+      )}
+    </li>
+    <li>
+      <a href="#pricing">Pricing</a>
+    </li>
+    <li>
+      <a href="#products">Products</a>
+    </li>
+    <li>
+      <a href="#about">About</a>
+    </li>
+         </ul>
+</Nav>
+</WrapperTeste>
       </HeaderWrapper>
       <Spacer />
     </>
